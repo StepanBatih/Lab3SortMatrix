@@ -1,83 +1,84 @@
 #include <stdio.h>
 #include<math.h>
-
-
 int main()
 {
-	int arr[5][5];
+	int Matrix[5][5];
+	void ScanMatrix();
+	{
 	for(int i = 0; i < 5; ++i)
 	{
 		for(int j = 0; j < 5; ++j)
-			scanf("%d", &arr[i][j]);
+			scanf("%d", &Matrix[i][j]);
 	}
-	int tmp;
-	
-	
+	}
+	int tempMatrix;
+
+void	PrintMatrix();
+	{
 	for(int i = 0; i < 5; ++i)
 	{
 		for(int j = 0; j < 5; ++j)
-			printf("%d\t", arr[i][j]);
+			printf("%d\t", Matrix[i][j]);
 		printf("\n");
 	}
 	printf("\n");
-	
-	
+	}
+	void SortMatrix_booble();{
 	for(int k = 0; k < 5; ++k)
 	{
-		//сортуванн€ р€дка по спаданню елемент≥в
+
 		for(int i = 0; i < 5 - 1; ++i)
 		{
 
 			for(int j = 0; j < 5 - i - 1; ++j)
 			{
-				if(arr[k][j] > arr[k][j+1])
+				if(Matrix[k][j] > Matrix[k][j+1])
 				{
-					tmp = arr[k][j];
-					arr[k][j] = arr[k][j+1];
-					arr[k][j+1] = tmp;	
+					tempMatrix = Matrix[k][j];
+					Matrix[k][j] = Matrix[k][j+1];
+					Matrix[k][j+1] = tempMatrix;
 				}
 			}
 		}
-		
+
 	}
 	for(int i = 0; i < 5; ++i)
 	{
 		for(int j = 0; j < 5; ++j)
-			printf("%d\t", arr[i][j]);
+			printf("%d\t", Matrix[i][j]);
 		printf("\n");
 	}
 	printf("\n");
+	}
+	int Minimumvalue[5];
+	int Multiplication;
+	Multiplication=1;
 
-	int min[5];
-	int multi;
-	multi=1;
-	
-	
 
-	
+
+
 	for(int i = 0; i < 5; ++i)
 	{
-		//пошук м≥н≥мального значенн€ в стовпц≥
-		min[i] = arr[0][i];
+
+		Minimumvalue[i] = Matrix[0][i];
 		for(int j =  1; j < 5 ; ++j)
 		{
-			if(min[i] > arr[j][i])
-				min[i] = arr[j][i];
+			if(Minimumvalue[i] > Matrix[j][i])
+				Minimumvalue[i] = Matrix[j][i];
 		}
-		printf("%d\t", min[i]);
+		printf("%d\t", Minimumvalue[i]);
 	}
-	
+
 	printf("\n");
 		printf("\n");
-	
-	//пошук добутку м≥н≥мальних елемент≥в стовпц€
+
 	  {
 		for(int i = 0; i < 5;++i)
 		{
-		multi= multi*min[i];
+		Multiplication= Multiplication*Minimumvalue[i];
 	     }
-	     printf("Multiply= %d  ",multi);
+	     printf("Multiplicationply= %d  ",Multiplication);
         }
-        
+
 	return 0;
 }
